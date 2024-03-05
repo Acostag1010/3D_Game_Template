@@ -479,7 +479,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_8pxjb")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
 [node name="RespawnArea" type="Area3D" parent="." node_paths=PackedStringArray("respawn_point")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -121.709, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -50.9917, 0)
 collision_layer = 0
 script = ExtResource("2_mbv8r")
 respawn_point = NodePath("../PlayerReSpawnPoint")
