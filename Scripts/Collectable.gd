@@ -8,3 +8,4 @@ func _on_body_entered(_body):
 	global.coin_count = global.coin_count +1
 	print("coin count", global.coin_count)
 	queue_free() # remove object from scene
+	$"../Coin".play()
