@@ -1,0 +1,62 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4b5hi4vl4pc0"]
+
+[ext_resource type="Script" path="res://UI/menu.gd" id="1_167iv"]
+[ext_resource type="Texture2D" uid="uid://bvlevwtkeg03v" path="res://Don’t Fall!.png" id="1_xhhk2"]
+[ext_resource type="PackedScene" uid="uid://qtosiu8j5rpo" path="res://Scenes/Levels/level_1.tscn" id="2_xnngj"]
+
+[node name="Splash Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_167iv")
+start_level_scene = ExtResource("2_xnngj")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_xhhk2")
+expand_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -67.9999
+offset_top = -58.9999
+offset_right = 24.0001
+offset_bottom = -18.9999
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1.55627, 1.55627)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Start" type="Button" parent="CenterContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "Start"
+
+[node name="Quit" type="Button" parent="CenterContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/MarginContainer/HBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/MarginContainer/HBoxContainer/Quit" to="." method="_on_quit_pressed"]
