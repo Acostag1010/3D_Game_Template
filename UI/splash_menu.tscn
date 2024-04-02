@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://c4b5hi4vl4pc0"]
+[gd_scene load_steps=3 format=3 uid="uid://c4b5hi4vl4pc0"]
 
 [ext_resource type="Script" path="res://UI/menu.gd" id="1_167iv"]
 [ext_resource type="Texture2D" uid="uid://bvlevwtkeg03v" path="res://Don’t Fall!.png" id="1_xhhk2"]
-[ext_resource type="PackedScene" uid="uid://qtosiu8j5rpo" path="res://Scenes/Levels/level_1.tscn" id="2_xnngj"]
 
 [node name="Splash Menu" type="Control"]
 layout_mode = 3
@@ -11,8 +10,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_167iv")
-start_level_scene = ExtResource("2_xnngj")
+start_level_scene = "res://Scenes/Levels/level_1.tscn"
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1

@@ -1,8 +1,7 @@
-[gd_scene load_steps=37 format=3 uid="uid://qtosiu8j5rpo"]
+[gd_scene load_steps=36 format=3 uid="uid://qtosiu8j5rpo"]
 
 [ext_resource type="PackedScene" uid="uid://bgm1hrvguiy1" path="res://UI/hud.tscn" id="1_3743k"]
 [ext_resource type="PackedScene" uid="uid://b0q0bnia378s4" path="res://Scenes/Player.tscn" id="1_c8p3n"]
-[ext_resource type="Script" path="res://Scripts/hud.gd" id="2_06ite"]
 [ext_resource type="Script" path="res://Scripts/RespawnPlayer.gd" id="2_mbv8r"]
 [ext_resource type="Script" path="res://Scripts/Collectable.gd" id="3_sxnab"]
 [ext_resource type="AudioStream" uid="uid://d2ai8bhpwcp2q" path="res://Audio/Pickup_coin 18.wav" id="4_ctukm"]
@@ -93,7 +92,7 @@ size = Vector2(1, 1.5)
 albedo_color = Color(1, 0, 0.12549, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_go84y"]
-size = Vector3(1000, 50, 1000)
+size = Vector3(1500, 50, 1500)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_tcphn"]
 height = 0.2
@@ -110,7 +109,6 @@ height = 0.2
 
 [node name="HUD" parent="UI" instance=ExtResource("1_3743k")]
 mouse_filter = 2
-script = ExtResource("2_06ite")
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_deqyo")
