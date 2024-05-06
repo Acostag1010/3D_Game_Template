@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://cyq38axt85a2k"]
+
+[ext_resource type="Material" path="res://Materials/BlueGrid.tres" id="2_j37rb"]
+
+[sub_resource type="GDScript" id="GDScript_u0sqs"]
+script/source = "extends Area3D
+
+@export_file var level_to_load
+
+var player_entered = false
+signal update_console
+
+func _unhandled_input(_event):
+	if Input.is_action_just_pressed(\"portal\"):
+		get_tree().change_scene_to_file(level_to_load)
+
+func _on_body_entered(body):
+	player_entered = true
+	emit_signal(\"update_console\", \"Press G to go to the next level\")
+
+func _on_body_exited(body):
+	player_entered = false
+	emit_signal(\"update_console\", \"\")
+"
+
+[sub_resource type="TorusMesh" id="TorusMesh_856yt"]
+inner_radius = 2.5
+outer_radius = 3.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mu08j"]
+size = Vector3(5.24664, 5.46143, 0.466316)
+
+[node name="Portal" type="Area3D"]
+collision_layer = 8
+script = SubResource("GDScript_u0sqs")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+material_override = ExtResource("2_j37rb")
+mesh = SubResource("TorusMesh_856yt")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.047699, -0.0783691, -0.00112534)
+shape = SubResource("BoxShape3D_mu08j")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
