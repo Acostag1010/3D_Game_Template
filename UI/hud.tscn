@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bgm1hrvguiy1"]
 
-[ext_resource type="Texture2D" uid="uid://b6lhsrni4aqcj" path="res://UI/coin_icon-removebg-preview.png" id="1_khj8j"]
 [ext_resource type="Script" path="res://Scripts/hud.gd" id="1_xonqr"]
+[ext_resource type="Texture2D" uid="uid://348oiebwji6a" path="res://UI/coin_icon.png" id="2_pnedc"]
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -18,7 +18,7 @@ offset_left = 10.0
 offset_top = 10.0
 offset_right = 96.0
 offset_bottom = 96.0
-texture = ExtResource("1_khj8j")
+texture = ExtResource("2_pnedc")
 expand_mode = 1
 
 [node name="Coin_Count" type="Label" parent="."]

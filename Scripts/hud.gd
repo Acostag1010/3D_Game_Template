@@ -8,3 +8,4 @@ func _on_coin_collectable_item_collected():
 
 func _on_portal_update_console(message):
 	$CenterContainer/Console.text = message
+

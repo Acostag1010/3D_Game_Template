@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://bukrofsokgs0w"]
+[gd_scene load_steps=7 format=3 uid="uid://bukrofsokgs0w"]
 
+[ext_resource type="PackedScene" uid="uid://b0q0bnia378s4" path="res://Scenes/Player.tscn" id="1_3wutq"]
 [ext_resource type="Script" path="res://Scripts/RespawnPlayer.gd" id="1_kwrpn"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_58fhg"]
@@ -16,6 +17,9 @@ size = Vector3(1500, 50, 1500)
 
 [node name="Level2" type="Node3D"]
 
+[node name="Player" parent="." instance=ExtResource("1_3wutq")]
+transform = Transform3D(-0.08453, 0, -0.996421, 0, 1, 0, 0.996421, 0, -0.08453, 0, 2.26854, 0)
+
 [node name="Ground" type="StaticBody3D" parent="."]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
@@ -26,11 +30,10 @@ metadata/_edit_lock_ = true
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
 shape = SubResource("BoxShape3D_nyr8f")
 
-[node name="RespawnArea" type="Area3D" parent="." node_paths=PackedStringArray("respawn_point")]
+[node name="RespawnArea" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -50.9917, 0)
 collision_layer = 0
 script = ExtResource("1_kwrpn")
-respawn_point = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RespawnArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 104.906, 0, 0)

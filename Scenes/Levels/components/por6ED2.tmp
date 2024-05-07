@@ -14,8 +14,7 @@ func _unhandled_input(_event):
 	if not player_entered:
 		return
 	if Input.is_action_just_pressed(\"portal\"):
-		if global.coin_count >= 3:
-			get_tree().change_scene_to_file(level_to_load)
+		get_tree().change_scene_to_file(level_to_load)
 
 func _on_body_entered(body):
 	if not player_entered:
@@ -24,6 +23,7 @@ func _on_body_entered(body):
 	
 	if global.coin_count < 3:
 		emit_signal(\"update_console\", \"You need 3 coins to go to the next level\")
+		
 	else:
 		emit_signal(\"update_console\", \"Press G to go to the next level\")
 

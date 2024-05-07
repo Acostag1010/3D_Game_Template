@@ -8,6 +8,7 @@
 [sub_resource type="CapsuleShape3D" id="2"]
 
 [node name="Player" type="CharacterBody3D"]
+collision_mask = 15
 script = ExtResource("1_qtton")
 
 [node name="MeshInstance" type="MeshInstance3D" parent="."]

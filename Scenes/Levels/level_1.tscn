@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://qtosiu8j5rpo"]
+[gd_scene load_steps=50 format=3 uid="uid://qtosiu8j5rpo"]
 
 [ext_resource type="PackedScene" uid="uid://bgm1hrvguiy1" path="res://UI/hud.tscn" id="1_3743k"]
 [ext_resource type="PackedScene" uid="uid://b0q0bnia378s4" path="res://Scenes/Player.tscn" id="1_c8p3n"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://d2ai8bhpwcp2q" path="res://Audio/Pickup_coin 18.wav" id="4_ctukm"]
 [ext_resource type="AudioStream" uid="uid://d11jk6nfy2t7f" path="res://Audio/BackgroundMusic.mp3" id="4_deqyo"]
 [ext_resource type="PackedScene" uid="uid://cyq38axt85a2k" path="res://Scenes/Levels/components/portal.tscn" id="7_0bbda"]
+[ext_resource type="Script" path="res://Scripts/portal.gd" id="8_ejqar"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_o6rc7"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -158,6 +159,7 @@ transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75
 shadow_enabled = true
 
 [node name="Ground" type="StaticBody3D" parent="."]
+collision_layer = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
 mesh = SubResource("BoxMesh_s0c0v")
@@ -1039,7 +1041,8 @@ surface_material_override/0 = SubResource("StandardMaterial3D_bn8dp")
 shape = SubResource("BoxShape3D_nurir")
 
 [node name="Portal" parent="." instance=ExtResource("7_0bbda")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 2, -4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 277.583, 4.11867, -45.8156)
+script = ExtResource("8_ejqar")
 level_to_load = "res://Scenes/Levels/level_2.tscn"
 
 [connection signal="body_entered" from="RespawnArea" to="RespawnArea" method="_on_body_entered"]
