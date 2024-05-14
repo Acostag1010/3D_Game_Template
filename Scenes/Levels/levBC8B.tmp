@@ -1,10 +1,10 @@
-[gd_scene load_steps=26 format=3 uid="uid://bukrofsokgs0w"]
+[gd_scene load_steps=29 format=3 uid="uid://bukrofsokgs0w"]
 
 [ext_resource type="PackedScene" uid="uid://b0q0bnia378s4" path="res://Scenes/Player.tscn" id="1_3wutq"]
 [ext_resource type="Script" path="res://Scripts/RespawnPlayer.gd" id="1_kwrpn"]
 [ext_resource type="PackedScene" uid="uid://bgm1hrvguiy1" path="res://UI/hud.tscn" id="1_l42cn"]
 [ext_resource type="AudioStream" uid="uid://d11jk6nfy2t7f" path="res://Audio/BackgroundMusic.mp3" id="2_gachb"]
-[ext_resource type="PackedScene" uid="uid://bpmbvqjcb8m6n" path="res://Scenes/Levels/components/coin_collectable.tscn" id="4_10ncm"]
+[ext_resource type="Script" path="res://Scripts/Collectable.gd" id="3_ym7nn"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_a1l6w"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -42,6 +42,15 @@ size = Vector3(10, 0.5, 0.3)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gpqw5"]
 size = Vector3(10, 0.5, 0.3)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_f6ku6"]
+height = 0.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4ct35"]
+albedo_color = Color(1, 1, 0, 1)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_505cl"]
+height = 0.2
 
 [sub_resource type="BoxMesh" id="BoxMesh_bwg7k"]
 size = Vector3(10, 1, 1)
@@ -531,11 +540,33 @@ mesh = SubResource("BoxMesh_pinb4")
 
 [node name="collectables" type="Node3D" parent="."]
 
-[node name="CoinCollectable" parent="collectables" instance=ExtResource("4_10ncm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90.244, 2.68301, -1.8444)
+[node name="CoinCollectable" type="Area3D" parent="collectables"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89.7404, 3.68754, -1.69779)
+collision_layer = 4
+script = ExtResource("3_ym7nn")
 
-[node name="CoinCollectable3" parent="collectables" instance=ExtResource("4_10ncm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 150.74, 2.55395, -2.1668)
+[node name="Coin" type="MeshInstance3D" parent="collectables/CoinCollectable"]
+transform = Transform3D(-0.00746999, -0.999972, 0, 0.999972, -0.00746999, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_f6ku6")
+surface_material_override/0 = SubResource("StandardMaterial3D_4ct35")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="collectables/CoinCollectable"]
+transform = Transform3D(-0.0249905, -0.999688, 0, 0.999688, -0.0249905, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("CylinderShape3D_505cl")
+
+[node name="CoinCollectable2" type="Area3D" parent="collectables"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 150.498, 2.59615, -1.968)
+collision_layer = 4
+script = ExtResource("3_ym7nn")
+
+[node name="Coin" type="MeshInstance3D" parent="collectables/CoinCollectable2"]
+transform = Transform3D(-0.00746999, -0.999972, 0, 0.999972, -0.00746999, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_f6ku6")
+surface_material_override/0 = SubResource("StandardMaterial3D_4ct35")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="collectables/CoinCollectable2"]
+transform = Transform3D(-0.0249905, -0.999688, 0, 0.999688, -0.0249905, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("CylinderShape3D_505cl")
 
 [node name="X\'s" type="Node3D" parent="."]
 
@@ -731,6 +762,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 104.906, 0, 0)
 shape = SubResource("BoxShape3D_am7p2")
 metadata/_edit_lock_ = true
 
+[connection signal="body_entered" from="collectables/CoinCollectable" to="collectables/CoinCollectable" method="_on_body_entered"]
 [connection signal="item_collected" from="collectables/CoinCollectable" to="UI/HUD" method="_on_coin_collectable_item_collected"]
-[connection signal="item_collected" from="collectables/CoinCollectable3" to="UI/HUD" method="_on_coin_collectable_3_item_collected"]
+[connection signal="body_entered" from="collectables/CoinCollectable2" to="collectables/CoinCollectable2" method="_on_body_entered"]
+[connection signal="item_collected" from="collectables/CoinCollectable2" to="UI/HUD" method="_on_coin_collectable_item_collected"]
 [connection signal="body_entered" from="RespawnArea" to="RespawnArea" method="_on_body_entered"]

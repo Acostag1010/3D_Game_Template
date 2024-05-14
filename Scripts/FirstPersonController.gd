@@ -81,3 +81,7 @@ func _jump(delta: float) -> Vector3:
 
 func _on_collectable_body_entered(body):
 	pass # Replace with function body.
+
+
+func _on_coin_collectable_item_collected():
+	pass # Replace with function body.

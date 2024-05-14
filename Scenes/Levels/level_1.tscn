@@ -1,11 +1,10 @@
-[gd_scene load_steps=50 format=3 uid="uid://qtosiu8j5rpo"]
+[gd_scene load_steps=46 format=3 uid="uid://qtosiu8j5rpo"]
 
 [ext_resource type="PackedScene" uid="uid://bgm1hrvguiy1" path="res://UI/hud.tscn" id="1_3743k"]
 [ext_resource type="PackedScene" uid="uid://b0q0bnia378s4" path="res://Scenes/Player.tscn" id="1_c8p3n"]
 [ext_resource type="Script" path="res://Scripts/RespawnPlayer.gd" id="2_mbv8r"]
-[ext_resource type="Script" path="res://Scripts/Collectable.gd" id="3_sxnab"]
-[ext_resource type="AudioStream" uid="uid://d2ai8bhpwcp2q" path="res://Audio/Pickup_coin 18.wav" id="4_ctukm"]
 [ext_resource type="AudioStream" uid="uid://d11jk6nfy2t7f" path="res://Audio/BackgroundMusic.mp3" id="4_deqyo"]
+[ext_resource type="PackedScene" uid="uid://bpmbvqjcb8m6n" path="res://Scenes/Levels/components/coin_collectable.tscn" id="5_sqyrl"]
 [ext_resource type="PackedScene" uid="uid://cyq38axt85a2k" path="res://Scenes/Levels/components/portal.tscn" id="7_0bbda"]
 [ext_resource type="Script" path="res://Scripts/portal.gd" id="8_ejqar"]
 
@@ -77,15 +76,6 @@ size = Vector3(15, 1, 5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_go84y"]
 size = Vector3(1500, 50, 1500)
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_tcphn"]
-height = 0.2
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0b8cn"]
-albedo_color = Color(1, 1, 0, 1)
-
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_k3v3q"]
-height = 0.2
 
 [sub_resource type="BoxMesh" id="BoxMesh_p0uvg"]
 size = Vector3(10, 0.5, 0.3)
@@ -638,51 +628,14 @@ metadata/_edit_lock_ = true
 
 [node name="Collectables" type="Node3D" parent="."]
 
-[node name="CoinCollectable" type="Area3D" parent="Collectables"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 130.71, 3.68754, -0.0519743)
-collision_layer = 4
-script = ExtResource("3_sxnab")
+[node name="CoinCollectable" parent="Collectables" instance=ExtResource("5_sqyrl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 130.97, 3.51366, 0)
 
-[node name="Coin" type="MeshInstance3D" parent="Collectables/CoinCollectable"]
-transform = Transform3D(-0.00746999, -0.999972, 0, 0.999972, -0.00746999, 0, 0, 0, 1, 0, 0, 0)
-mesh = SubResource("CylinderMesh_tcphn")
-surface_material_override/0 = SubResource("StandardMaterial3D_0b8cn")
+[node name="CoinCollectable3" parent="Collectables" instance=ExtResource("5_sqyrl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 226.928, 3.53575, -0.0519743)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Collectables/CoinCollectable"]
-transform = Transform3D(-0.0249905, -0.999688, 0, 0.999688, -0.0249905, 0, 0, 0, 1, 0, 0, 0)
-shape = SubResource("CylinderShape3D_k3v3q")
-
-[node name="Coin" type="AudioStreamPlayer3D" parent="Collectables"]
-stream = ExtResource("4_ctukm")
-volume_db = 5.0
-
-[node name="CoinCollectable2" type="Area3D" parent="Collectables"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 226.928, 3.68754, -0.0519743)
-collision_layer = 4
-script = ExtResource("3_sxnab")
-
-[node name="Coin" type="MeshInstance3D" parent="Collectables/CoinCollectable2"]
-transform = Transform3D(-0.00746999, -0.999972, 0, 0.999972, -0.00746999, 0, 0, 0, 1, 0, 0, 0)
-mesh = SubResource("CylinderMesh_tcphn")
-surface_material_override/0 = SubResource("StandardMaterial3D_0b8cn")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Collectables/CoinCollectable2"]
-transform = Transform3D(-0.0249905, -0.999688, 0, 0.999688, -0.0249905, 0, 0, 0, 1, 0, 0, 0)
-shape = SubResource("CylinderShape3D_k3v3q")
-
-[node name="CoinCollectable3" type="Area3D" parent="Collectables"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 262.124, 3.5563, 3.2734)
-collision_layer = 4
-script = ExtResource("3_sxnab")
-
-[node name="Coin" type="MeshInstance3D" parent="Collectables/CoinCollectable3"]
-transform = Transform3D(-0.00746999, -0.999972, 0, 0.999972, -0.00746999, 0, 0, 0, 1, 0, 0, 0)
-mesh = SubResource("CylinderMesh_tcphn")
-surface_material_override/0 = SubResource("StandardMaterial3D_0b8cn")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Collectables/CoinCollectable3"]
-transform = Transform3D(-0.0249905, -0.999688, 0, 0.999688, -0.0249905, 0, 0, 0, 1, 0, 0, 0)
-shape = SubResource("CylinderShape3D_k3v3q")
+[node name="CoinCollectable2" parent="Collectables" instance=ExtResource("5_sqyrl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 262.124, 3.5563, 3.30538)
 
 [node name="Thinner Platforms" type="Node3D" parent="."]
 
@@ -1047,10 +1000,7 @@ script = ExtResource("8_ejqar")
 level_to_load = "res://Scenes/Levels/level_2.tscn"
 
 [connection signal="body_entered" from="RespawnArea" to="RespawnArea" method="_on_body_entered"]
-[connection signal="body_entered" from="Collectables/CoinCollectable" to="Collectables/CoinCollectable" method="_on_body_entered"]
 [connection signal="item_collected" from="Collectables/CoinCollectable" to="UI/HUD" method="_on_coin_collectable_item_collected"]
-[connection signal="body_entered" from="Collectables/CoinCollectable2" to="Collectables/CoinCollectable2" method="_on_body_entered"]
-[connection signal="item_collected" from="Collectables/CoinCollectable2" to="UI/HUD" method="_on_coin_collectable_item_collected"]
-[connection signal="body_entered" from="Collectables/CoinCollectable3" to="Collectables/CoinCollectable3" method="_on_body_entered"]
-[connection signal="item_collected" from="Collectables/CoinCollectable3" to="UI/HUD" method="_on_coin_collectable_item_collected"]
+[connection signal="item_collected" from="Collectables/CoinCollectable3" to="UI/HUD" method="_on_coin_collectable_3_item_collected"]
+[connection signal="item_collected" from="Collectables/CoinCollectable2" to="UI/HUD" method="_on_coin_collectable_2_item_collected"]
 [connection signal="update_console" from="Portal" to="UI/HUD" method="_on_portal_update_console"]
