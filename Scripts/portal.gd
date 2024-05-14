@@ -13,6 +13,7 @@ func _unhandled_input(_event):
 			get_tree().change_scene_to_file(level_to_load)
 
 func _on_body_entered(body):
+	print(body)
 	player_entered = true
 	
 	if global.coin_count < 3:

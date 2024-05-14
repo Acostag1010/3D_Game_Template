@@ -671,7 +671,7 @@ transform = Transform3D(-0.0249905, -0.999688, 0, 0.999688, -0.0249905, 0, 0, 0,
 shape = SubResource("CylinderShape3D_k3v3q")
 
 [node name="CoinCollectable3" type="Area3D" parent="Collectables"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 262.124, 3.5563, 2.67594)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 262.124, 3.5563, 3.2734)
 collision_layer = 4
 script = ExtResource("3_sxnab")
 
@@ -701,7 +701,7 @@ shape = SubResource("BoxShape3D_ed7ak")
 transform = Transform3D(-0.0061086, 0, 0.999981, 0, 1, 0, -0.999981, 0, -0.0061086, 144.203, 0, 7.07064)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Thinner Platforms/thinnerPlatform2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.29465, 2.72129, -0.163807)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.29465, 2.72129, -0.163803)
 mesh = SubResource("BoxMesh_p0uvg")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Thinner Platforms/thinnerPlatform2"]
@@ -886,71 +886,71 @@ surface_material_override/0 = SubResource("StandardMaterial3D_gmk37")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="bubbles/Bubble10"]
 shape = SubResource("SphereShape3D_b03k3")
 
-[node name="Checkpoints" type="Node3D" parent="."]
+[node name="Checkpoints_platforms" type="Node3D" parent="."]
 
-[node name="Checkpoint" type="StaticBody3D" parent="Checkpoints"]
+[node name="Checkpoint_platform" type="StaticBody3D" parent="Checkpoints_platforms"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 129.572, 2.48146, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Checkpoints/Checkpoint"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Checkpoints_platforms/Checkpoint_platform"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.35621, 0, 0)
 mesh = SubResource("BoxMesh_qyopk")
 surface_material_override/0 = SubResource("StandardMaterial3D_b6c1g")
 metadata/_edit_lock_ = true
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints/Checkpoint"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints_platforms/Checkpoint_platform"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.34352, 0, 0)
 shape = SubResource("BoxShape3D_pg5gg")
 
-[node name="Flag" type="StaticBody3D" parent="Checkpoints/Checkpoint"]
+[node name="Flag" type="StaticBody3D" parent="Checkpoints_platforms/Checkpoint_platform"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.933, 0.34373, 0)
 metadata/_edit_lock_ = true
 
-[node name="pole" type="MeshInstance3D" parent="Checkpoints/Checkpoint/Flag"]
+[node name="pole" type="MeshInstance3D" parent="Checkpoints_platforms/Checkpoint_platform/Flag"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.04955, 1.663, 1.62615)
 mesh = SubResource("CylinderMesh_1c1eh")
 surface_material_override/0 = SubResource("StandardMaterial3D_gf6uy")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints/Checkpoint/Flag"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints_platforms/Checkpoint_platform/Flag"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.04985, 1.65957, 1.62734)
 shape = SubResource("CylinderShape3D_e6bvf")
 
-[node name="flag top" type="StaticBody3D" parent="Checkpoints/Checkpoint/Flag"]
+[node name="flag top" type="StaticBody3D" parent="Checkpoints_platforms/Checkpoint_platform/Flag"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.58578, 2.67673, 0.675319)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Checkpoints/Checkpoint/Flag/flag top"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Checkpoints_platforms/Checkpoint_platform/Flag/flag top"]
 transform = Transform3D(0.015271, -0.999883, 0, 0.999883, 0.015271, 0, 0, 0, 1, -0.550018, -0.0293503, 1.6153)
 mesh = SubResource("PlaneMesh_eikgi")
 surface_material_override/0 = SubResource("StandardMaterial3D_8pxjb")
 
-[node name="Checkpoint2" type="StaticBody3D" parent="Checkpoints"]
+[node name="Checkpoint_platform2" type="StaticBody3D" parent="Checkpoints_platforms"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 225.593, 2.48146, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Checkpoints/Checkpoint2"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Checkpoints_platforms/Checkpoint_platform2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.35621, 0, 0)
 mesh = SubResource("BoxMesh_qyopk")
 surface_material_override/0 = SubResource("StandardMaterial3D_b6c1g")
 metadata/_edit_lock_ = true
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints/Checkpoint2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints_platforms/Checkpoint_platform2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.34352, 0, 0)
 shape = SubResource("BoxShape3D_pg5gg")
 
-[node name="Flag2" type="StaticBody3D" parent="Checkpoints/Checkpoint2"]
+[node name="Flag2" type="StaticBody3D" parent="Checkpoints_platforms/Checkpoint_platform2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.66602, 0.34373, 0)
 
-[node name="pole" type="MeshInstance3D" parent="Checkpoints/Checkpoint2/Flag2"]
+[node name="pole" type="MeshInstance3D" parent="Checkpoints_platforms/Checkpoint_platform2/Flag2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.04955, 1.663, 1.62615)
 mesh = SubResource("CylinderMesh_1c1eh")
 surface_material_override/0 = SubResource("StandardMaterial3D_gf6uy")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints/Checkpoint2/Flag2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints_platforms/Checkpoint_platform2/Flag2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.04985, 1.65957, 1.62734)
 shape = SubResource("CylinderShape3D_e6bvf")
 
-[node name="flag top" type="StaticBody3D" parent="Checkpoints/Checkpoint2/Flag2"]
+[node name="flag top" type="StaticBody3D" parent="Checkpoints_platforms/Checkpoint_platform2/Flag2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.58578, 2.67673, 0.675319)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Checkpoints/Checkpoint2/Flag2/flag top"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Checkpoints_platforms/Checkpoint_platform2/Flag2/flag top"]
 transform = Transform3D(0.015271, -0.999883, 0, 0.999883, 0.015271, 0, 0, 0, 1, -0.550018, -0.0293503, 1.6153)
 mesh = SubResource("PlaneMesh_eikgi")
 surface_material_override/0 = SubResource("StandardMaterial3D_8pxjb")
@@ -978,7 +978,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_3nsdy")
 shape = SubResource("BoxShape3D_hil8h")
 
 [node name="Box4" type="StaticBody3D" parent="Boxes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 255.912, 2.47305, 2.65332)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 255.912, 2.47305, 2.75867)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Boxes/Box4"]
 mesh = SubResource("BoxMesh_mkbli")
@@ -988,7 +988,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_3nsdy")
 shape = SubResource("BoxShape3D_hil8h")
 
 [node name="Box6" type="StaticBody3D" parent="Boxes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 258.748, 2.47305, 2.65332)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 258.748, 2.47305, 3.32632)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Boxes/Box6"]
 mesh = SubResource("BoxMesh_mkbli")
@@ -998,7 +998,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_3nsdy")
 shape = SubResource("BoxShape3D_hil8h")
 
 [node name="Box5" type="StaticBody3D" parent="Boxes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 262.08, 2.47305, 2.65332)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 262.08, 2.47305, 3.29445)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Boxes/Box5"]
 mesh = SubResource("BoxMesh_mkbli")
@@ -1008,7 +1008,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_3nsdy")
 shape = SubResource("BoxShape3D_hil8h")
 
 [node name="Box8" type="StaticBody3D" parent="Boxes"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 264.53, 2.47305, 2.65332)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 264.53, 2.47305, 3.32915)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Boxes/Box8"]
 mesh = SubResource("BoxMesh_mkbli")
@@ -1032,6 +1032,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 277.527, 2.35636, -30.7985)
 
 [node name="FinishPaltform" type="StaticBody3D" parent="Finish"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.21271)
+collision_layer = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Finish/FinishPaltform"]
 mesh = SubResource("BoxMesh_cxgud")
