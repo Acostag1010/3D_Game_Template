@@ -614,10 +614,10 @@ metadata/_edit_lock_ = true
 [node name="CoinCollectable" parent="Collectables" instance=ExtResource("5_sqyrl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 130.97, 3.51366, 0)
 
-[node name="CoinCollectable3" parent="Collectables" instance=ExtResource("5_sqyrl")]
+[node name="CoinCollectable2" parent="Collectables" instance=ExtResource("5_sqyrl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 226.928, 3.53575, -0.0519743)
 
-[node name="CoinCollectable2" parent="Collectables" instance=ExtResource("5_sqyrl")]
+[node name="CoinCollectable3" parent="Collectables" instance=ExtResource("5_sqyrl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 262.124, 3.5563, 3.30538)
 
 [node name="Thinner Platforms" type="Node3D" parent="."]
@@ -929,8 +929,8 @@ level_to_load = "res://Scenes/Levels/level_2.tscn"
 
 [connection signal="body_entered" from="RespawnArea" to="RespawnArea" method="_on_body_entered"]
 [connection signal="item_collected" from="Collectables/CoinCollectable" to="UI/HUD" method="_on_coin_collectable_item_collected"]
-[connection signal="item_collected" from="Collectables/CoinCollectable3" to="UI/HUD" method="_on_coin_collectable_item_collected"]
 [connection signal="item_collected" from="Collectables/CoinCollectable2" to="UI/HUD" method="_on_coin_collectable_item_collected"]
+[connection signal="item_collected" from="Collectables/CoinCollectable3" to="UI/HUD" method="_on_coin_collectable_item_collected"]
 [connection signal="update_console" from="Portal" to="UI/HUD" method="_on_portal_update_console"]
 
 [editable path="Checkpoints_platforms/Checkpoint_platform"]
