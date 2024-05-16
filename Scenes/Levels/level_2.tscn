@@ -1,10 +1,11 @@
-[gd_scene load_steps=26 format=3 uid="uid://bukrofsokgs0w"]
+[gd_scene load_steps=27 format=3 uid="uid://bukrofsokgs0w"]
 
 [ext_resource type="PackedScene" uid="uid://b0q0bnia378s4" path="res://Scenes/Player.tscn" id="1_3wutq"]
 [ext_resource type="Script" path="res://Scripts/RespawnPlayer.gd" id="1_kwrpn"]
 [ext_resource type="PackedScene" uid="uid://bgm1hrvguiy1" path="res://UI/hud.tscn" id="1_l42cn"]
 [ext_resource type="AudioStream" uid="uid://d11jk6nfy2t7f" path="res://Audio/BackgroundMusic.mp3" id="2_gachb"]
 [ext_resource type="PackedScene" uid="uid://bpmbvqjcb8m6n" path="res://Scenes/Levels/components/coin_collectable.tscn" id="4_10ncm"]
+[ext_resource type="PackedScene" uid="uid://dljb1l6yw035x" path="res://Scenes/Levels/components/checkpoint_platform.tscn" id="6_lsyl3"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_a1l6w"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -93,6 +94,7 @@ environment = SubResource("Environment_1k7rp")
 transform = Transform3D(-0.08453, 0, -0.996421, 0, 1, 0, 0.996421, 0, -0.08453, 0, 2.26854, 0)
 
 [node name="Ground" type="StaticBody3D" parent="."]
+collision_layer = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
 mesh = SubResource("BoxMesh_58fhg")
@@ -106,6 +108,7 @@ shape = SubResource("BoxShape3D_nyr8f")
 
 [node name="platform" type="StaticBody3D" parent="Platforms"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.9077, 0, 0)
+collision_layer = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Platforms/platform"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.35621, 0, 0)
@@ -119,6 +122,7 @@ shape = SubResource("BoxShape3D_0m0qk")
 
 [node name="platform2" type="StaticBody3D" parent="Platforms"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.915, 0.703285, -5.53163)
+collision_layer = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Platforms/platform2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.35621, 0, 0)
@@ -132,6 +136,7 @@ shape = SubResource("BoxShape3D_0m0qk")
 
 [node name="platform3" type="StaticBody3D" parent="Platforms"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.9077, 1.45078, -10.7888)
+collision_layer = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Platforms/platform3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.35621, 0, 0)
@@ -145,6 +150,7 @@ shape = SubResource("BoxShape3D_0m0qk")
 
 [node name="platform4" type="StaticBody3D" parent="Platforms"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.915, 0.703285, 4.97825)
+collision_layer = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Platforms/platform4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.35621, 0, 0)
@@ -158,6 +164,7 @@ shape = SubResource("BoxShape3D_0m0qk")
 
 [node name="platform5" type="StaticBody3D" parent="Platforms"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.9077, 1.4863, 9.57471)
+collision_layer = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Platforms/platform5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.35621, 0, 0)
@@ -171,6 +178,7 @@ shape = SubResource("BoxShape3D_0m0qk")
 
 [node name="platform6" type="StaticBody3D" parent="Platforms"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88.326, 1.61593, 9.57471)
+collision_layer = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Platforms/platform6"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.35621, 0, 0)
@@ -184,6 +192,7 @@ shape = SubResource("BoxShape3D_0m0qk")
 
 [node name="platform7" type="StaticBody3D" parent="Platforms"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88.326, 1.61593, -12.9072)
+collision_layer = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Platforms/platform7"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.35621, 0, 0)
@@ -195,35 +204,10 @@ metadata/_edit_lock_ = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.34352, 0, 0)
 shape = SubResource("BoxShape3D_0m0qk")
 
-[node name="platform8" type="StaticBody3D" parent="Platforms"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88.326, 1.61593, -1.77807)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Platforms/platform8"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.35621, 0, 0)
-mesh = SubResource("BoxMesh_eyysm")
-surface_material_override/0 = SubResource("StandardMaterial3D_xtvmj")
-metadata/_edit_lock_ = true
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/platform8"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.34352, 0, 0)
-shape = SubResource("BoxShape3D_0m0qk")
-
-[node name="platform9" type="StaticBody3D" parent="Platforms"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 149.156, 1.488, -2.077)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Platforms/platform9"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.35621, 0, 0)
-mesh = SubResource("BoxMesh_eyysm")
-surface_material_override/0 = SubResource("StandardMaterial3D_xtvmj")
-metadata/_edit_lock_ = true
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Platforms/platform9"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.34352, 0, 0)
-shape = SubResource("BoxShape3D_0m0qk")
-
 [node name="thinner_real_rectangles" type="Node3D" parent="."]
 
 [node name="Thinner_real_rectangle" type="StaticBody3D" parent="thinner_real_rectangles"]
+collision_layer = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="thinner_real_rectangles/Thinner_real_rectangle"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.6535, 1.87884, 10.6818)
@@ -236,6 +220,7 @@ shape = SubResource("BoxShape3D_gpqw5")
 
 [node name="Thinner_real_rectangles2" type="StaticBody3D" parent="thinner_real_rectangles"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.2065, -0.842445, 9.54305)
+collision_layer = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="thinner_real_rectangles/Thinner_real_rectangles2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.29465, 2.72129, -0.163807)
@@ -247,6 +232,7 @@ shape = SubResource("BoxShape3D_gpqw5")
 
 [node name="Thinner_real_rectangles3" type="StaticBody3D" parent="thinner_real_rectangles"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.0925, -0.842445, 9.54305)
+collision_layer = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="thinner_real_rectangles/Thinner_real_rectangles3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.29465, 2.72129, -0.163807)
@@ -258,6 +244,7 @@ shape = SubResource("BoxShape3D_gpqw5")
 
 [node name="Thinner_real_rectangles4" type="StaticBody3D" parent="thinner_real_rectangles"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.1878, -0.842445, 8.48251)
+collision_layer = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="thinner_real_rectangles/Thinner_real_rectangles4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.29465, 2.72129, -0.163807)
@@ -269,6 +256,7 @@ shape = SubResource("BoxShape3D_gpqw5")
 
 [node name="Thinner_real_rectangles5" type="StaticBody3D" parent="thinner_real_rectangles"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 67.9892, -0.842445, 8.48251)
+collision_layer = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="thinner_real_rectangles/Thinner_real_rectangles5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.29465, 2.72129, -0.163807)
@@ -280,6 +268,7 @@ shape = SubResource("BoxShape3D_gpqw5")
 
 [node name="Thinner_real_rectangles6" type="StaticBody3D" parent="thinner_real_rectangles"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 79.1794, -0.842445, 9.54305)
+collision_layer = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="thinner_real_rectangles/Thinner_real_rectangles6"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.29465, 2.72129, -0.163807)
@@ -291,6 +280,7 @@ shape = SubResource("BoxShape3D_gpqw5")
 
 [node name="Thinner_real_rectangles7" type="StaticBody3D" parent="thinner_real_rectangles"]
 transform = Transform3D(0.844459, 0, 0.535621, 0, 1, 0, -0.535621, 0, 0.844459, 24.3588, -1.22837, -10.8313)
+collision_layer = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="thinner_real_rectangles/Thinner_real_rectangles7"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.29465, 2.72129, -0.163807)
@@ -302,6 +292,7 @@ shape = SubResource("BoxShape3D_gpqw5")
 
 [node name="Thinner_real_rectangles8" type="StaticBody3D" parent="thinner_real_rectangles"]
 transform = Transform3D(0.777563, 0, -0.628805, 0, 1, 0, 0.628805, 0, 0.777563, 32.2943, -1.22837, -12.9237)
+collision_layer = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="thinner_real_rectangles/Thinner_real_rectangles8"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.29465, 2.72129, -0.163807)
@@ -313,6 +304,7 @@ shape = SubResource("BoxShape3D_gpqw5")
 
 [node name="Thinner_real_rectangles9" type="StaticBody3D" parent="thinner_real_rectangles"]
 transform = Transform3D(0.00982607, 0, 0.999952, 0, 1, 0, -0.999952, 0, 0.00982607, 37.971, -1.22837, -11.1317)
+collision_layer = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="thinner_real_rectangles/Thinner_real_rectangles9"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.29465, 2.72129, -0.163807)
@@ -324,6 +316,7 @@ shape = SubResource("BoxShape3D_gpqw5")
 
 [node name="Thinner_real_rectangles10" type="StaticBody3D" parent="thinner_real_rectangles"]
 transform = Transform3D(0.00982607, 0, 0.999952, 0, 1, 0, -0.999952, 0, 0.00982607, 37.971, -1.22837, -20.7695)
+collision_layer = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="thinner_real_rectangles/Thinner_real_rectangles10"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.29465, 2.72129, -0.163807)
@@ -335,6 +328,7 @@ shape = SubResource("BoxShape3D_gpqw5")
 
 [node name="Thinner_real_rectangles11" type="StaticBody3D" parent="thinner_real_rectangles"]
 transform = Transform3D(-0.998923, 0, 0.0464091, 0, 1, 0, -0.0464091, 0, -0.998923, 40.0326, -1.22837, -28.3119)
+collision_layer = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="thinner_real_rectangles/Thinner_real_rectangles11"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.29465, 2.72129, -0.163807)
@@ -346,6 +340,7 @@ shape = SubResource("BoxShape3D_gpqw5")
 
 [node name="Thinner_real_rectangles12" type="StaticBody3D" parent="thinner_real_rectangles"]
 transform = Transform3D(-0.843138, 0, 0.537697, 0, 1, 0, -0.537697, 0, -0.843138, 48.7622, -1.22837, -24.287)
+collision_layer = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="thinner_real_rectangles/Thinner_real_rectangles12"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.29465, 2.72129, -0.163807)
@@ -357,6 +352,7 @@ shape = SubResource("BoxShape3D_gpqw5")
 
 [node name="Thinner_real_rectangles13" type="StaticBody3D" parent="thinner_real_rectangles"]
 transform = Transform3D(0.00982607, 0, 0.999952, 0, 1, 0, -0.999952, 0, 0.00982607, 50.9071, -1.22837, -15.5886)
+collision_layer = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="thinner_real_rectangles/Thinner_real_rectangles13"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.29465, 2.72129, -0.163807)
@@ -368,6 +364,7 @@ shape = SubResource("BoxShape3D_gpqw5")
 
 [node name="Thinner_real_rectangles14" type="StaticBody3D" parent="thinner_real_rectangles"]
 transform = Transform3D(-0.4416, 0, 0.897212, 0, 1, 0, -0.897212, 0, -0.4416, 53.9608, -1.22837, -7.04247)
+collision_layer = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="thinner_real_rectangles/Thinner_real_rectangles14"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.29465, 2.72129, -0.163807)
@@ -379,6 +376,7 @@ shape = SubResource("BoxShape3D_gpqw5")
 
 [node name="Thinner_real_rectangles15" type="StaticBody3D" parent="thinner_real_rectangles"]
 transform = Transform3D(-0.999428, 0, -0.0338355, 0, 1, 0, 0.0338355, 0, -0.999428, 59.2981, -1.22837, -4.79009)
+collision_layer = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="thinner_real_rectangles/Thinner_real_rectangles15"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.29465, 2.72129, -0.163807)
@@ -390,6 +388,7 @@ shape = SubResource("BoxShape3D_gpqw5")
 
 [node name="Thinner_real_rectangles16" type="StaticBody3D" parent="thinner_real_rectangles"]
 transform = Transform3D(-0.861966, 0, -0.506967, 0, 1, 0, 0.506967, 0, -0.861966, 67.8264, -1.22837, -8.46323)
+collision_layer = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="thinner_real_rectangles/Thinner_real_rectangles16"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.29465, 2.72129, -0.163807)
@@ -401,6 +400,7 @@ shape = SubResource("BoxShape3D_gpqw5")
 
 [node name="Thinner_real_rectangles17" type="StaticBody3D" parent="thinner_real_rectangles"]
 transform = Transform3D(-0.999428, 0, -0.0338355, 0, 1, 0, 0.0338355, 0, -0.999428, 77.439, -1.22837, -10.1385)
+collision_layer = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="thinner_real_rectangles/Thinner_real_rectangles17"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.29465, 2.72129, -0.163807)
@@ -412,6 +412,7 @@ shape = SubResource("BoxShape3D_gpqw5")
 
 [node name="Thinner_real_rectangles18" type="StaticBody3D" parent="thinner_real_rectangles"]
 transform = Transform3D(-0.790444, 0, -0.612535, 0, 1, 0, 0.612535, 0, -0.790444, 83.2262, -1.22837, -14.3836)
+collision_layer = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="thinner_real_rectangles/Thinner_real_rectangles18"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.29465, 2.72129, -0.163807)
@@ -423,6 +424,7 @@ shape = SubResource("BoxShape3D_gpqw5")
 
 [node name="Thinner_real_rectangles19" type="StaticBody3D" parent="thinner_real_rectangles"]
 transform = Transform3D(-0.00478231, 0, -0.999989, 0, 1, 0, 0.999989, 0, -0.00478231, 89.6482, -0.88705, -8.48165)
+collision_layer = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="thinner_real_rectangles/Thinner_real_rectangles19"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.29465, 2.72129, -0.163807)
@@ -434,6 +436,7 @@ shape = SubResource("BoxShape3D_gpqw5")
 
 [node name="Thinner_real_rectangles20" type="StaticBody3D" parent="thinner_real_rectangles"]
 transform = Transform3D(-0.00478231, 0, -0.999989, 0, 1, 0, 0.999989, 0, -0.00478231, 89.6482, -0.88705, 3.00535)
+collision_layer = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="thinner_real_rectangles/Thinner_real_rectangles20"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.29465, 2.72129, -0.163807)
@@ -447,6 +450,7 @@ shape = SubResource("BoxShape3D_gpqw5")
 
 [node name="thinner_fake_rectangle" type="StaticBody3D" parent="thinner_fake_rectangle"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.3796, -0.779709, 9.63627)
+collision_layer = 0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="thinner_fake_rectangle/thinner_fake_rectangle"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.29465, 2.72129, -0.163807)
@@ -534,7 +538,7 @@ mesh = SubResource("BoxMesh_pinb4")
 [node name="CoinCollectable" parent="collectables" instance=ExtResource("4_10ncm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90.244, 2.68301, -1.8444)
 
-[node name="CoinCollectable3" parent="collectables" instance=ExtResource("4_10ncm")]
+[node name="CoinCollectable2" parent="collectables" instance=ExtResource("4_10ncm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 150.74, 2.55395, -2.1668)
 
 [node name="X\'s" type="Node3D" parent="."]
@@ -543,6 +547,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 150.74, 2.55395, -2.1668)
 
 [node name="thin platform3" type="StaticBody3D" parent="X\'s/X"]
 transform = Transform3D(0.84715, 0, -0.531354, 0, 1, 0, 0.531354, 0, 0.84715, 97.1981, 1.48781, -3.37592)
+collision_layer = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="X\'s/X/thin platform3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.89887, 0, 0)
@@ -555,6 +560,7 @@ shape = SubResource("BoxShape3D_q7cn0")
 
 [node name="thin platform4" type="StaticBody3D" parent="X\'s/X"]
 transform = Transform3D(-0.789759, 0, -0.613418, 0, 1, 0, 0.613418, 0, -0.789759, 101.869, 1.488, -3.971)
+collision_layer = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="X\'s/X/thin platform4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.89887, 0, 0)
@@ -569,6 +575,7 @@ shape = SubResource("BoxShape3D_q7cn0")
 
 [node name="thin platform3" type="StaticBody3D" parent="X\'s/X2"]
 transform = Transform3D(0.84715, 0, -0.531354, 0, 1, 0, 0.531354, 0, 0.84715, 108.589, 1.488, -3.376)
+collision_layer = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="X\'s/X2/thin platform3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.89887, 0, 0)
@@ -581,6 +588,7 @@ shape = SubResource("BoxShape3D_q7cn0")
 
 [node name="thin platform4" type="StaticBody3D" parent="X\'s/X2"]
 transform = Transform3D(-0.789759, 0, -0.613418, 0, 1, 0, 0.613418, 0, -0.789759, 113.26, 1.488, -3.971)
+collision_layer = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="X\'s/X2/thin platform4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.89887, 0, 0)
@@ -595,6 +603,7 @@ shape = SubResource("BoxShape3D_q7cn0")
 
 [node name="thin platform3" type="StaticBody3D" parent="X\'s/X3"]
 transform = Transform3D(0.84715, 0, -0.531354, 0, 1, 0, 0.531354, 0, 0.84715, 120.306, 1.488, -3.376)
+collision_layer = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="X\'s/X3/thin platform3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.89887, 0, 0)
@@ -607,6 +616,7 @@ shape = SubResource("BoxShape3D_q7cn0")
 
 [node name="thin platform4" type="StaticBody3D" parent="X\'s/X3"]
 transform = Transform3D(-0.789759, 0, -0.613418, 0, 1, 0, 0.613418, 0, -0.789759, 124.977, 1.488, -3.971)
+collision_layer = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="X\'s/X3/thin platform4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.89887, 0, 0)
@@ -621,6 +631,7 @@ shape = SubResource("BoxShape3D_q7cn0")
 
 [node name="thin platform3" type="StaticBody3D" parent="Thin platform"]
 transform = Transform3D(-0.0263859, 0, -0.999652, 0, 1, 0, 0.999652, 0, -0.0263859, 130.766, 1.488, -4.983)
+collision_layer = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Thin platform/thin platform3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.89887, 0, 0)
@@ -633,6 +644,7 @@ shape = SubResource("BoxShape3D_q7cn0")
 
 [node name="thin platform4" type="StaticBody3D" parent="Thin platform"]
 transform = Transform3D(-0.0263859, 0, -0.999652, 0, 1, 0, 0.999652, 0, -0.0263859, 134.438, 1.488, -4.983)
+collision_layer = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Thin platform/thin platform4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.89887, 0, 0)
@@ -645,6 +657,7 @@ shape = SubResource("BoxShape3D_q7cn0")
 
 [node name="thin platform5" type="StaticBody3D" parent="Thin platform"]
 transform = Transform3D(-0.0263859, 0, -0.999652, 0, 1, 0, 0.999652, 0, -0.0263859, 138.067, 1.488, -4.983)
+collision_layer = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Thin platform/thin platform5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.89887, 0, 0)
@@ -657,6 +670,7 @@ shape = SubResource("BoxShape3D_q7cn0")
 
 [node name="thin platform6" type="StaticBody3D" parent="Thin platform"]
 transform = Transform3D(-0.0263859, 0, -0.999652, 0, 1, 0, 0.999652, 0, -0.0263859, 141.646, 1.488, -4.983)
+collision_layer = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Thin platform/thin platform6"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.89887, 0, 0)
@@ -669,6 +683,7 @@ shape = SubResource("BoxShape3D_q7cn0")
 
 [node name="thin platform7" type="StaticBody3D" parent="Thin platform"]
 transform = Transform3D(-0.0263859, 0, -0.999652, 0, 1, 0, 0.999652, 0, -0.0263859, 145.517, 1.488, -4.983)
+collision_layer = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Thin platform/thin platform7"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.89887, 0, 0)
@@ -684,6 +699,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 158.897, 0, -2.42234)
 
 [node name="Long thin platform" type="StaticBody3D" parent="Long thin platforms"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.635, 1.488, 1.464)
+collision_layer = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Long thin platforms/Long thin platform"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.2484, 0, 0)
@@ -698,6 +714,7 @@ shape = SubResource("BoxShape3D_pl6m5")
 
 [node name="Long thin platform fake" type="StaticBody3D" parent="long fake thin platforms"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 156.327, 1.488, -3.657)
+collision_layer = 0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="long fake thin platforms/Long thin platform fake"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.2484, 0, 0)
@@ -709,6 +726,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 265.772, 0.0881371, 1.21003)
 
 [node name="FinishPaltform" type="StaticBody3D" parent="Finish"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.488, -3.369)
+collision_layer = 2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Finish/FinishPaltform"]
 mesh = SubResource("BoxMesh_p4lxs")
@@ -731,6 +749,26 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 104.906, 0, 0)
 shape = SubResource("BoxShape3D_am7p2")
 metadata/_edit_lock_ = true
 
+[node name="Checkpoints" type="Node3D" parent="."]
+
+[node name="Checkpoint_platform" parent="Checkpoints" instance=ExtResource("6_lsyl3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88.326, 1.61593, -1.77807)
+
+[node name="checkpoint" parent="Checkpoints/Checkpoint_platform" index="3" node_paths=PackedStringArray("player_respawn_position")]
+player_respawn_position = NodePath("../../../PlayerReSpawnPoint")
+
+[node name="Checkpoint_platform2" parent="Checkpoints" instance=ExtResource("6_lsyl3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 149.156, 1.488, -2.077)
+
+[node name="MeshInstance3D" parent="Checkpoints/Checkpoint_platform2" index="0"]
+skeleton = NodePath("../../Checkpoint_platform2")
+
+[node name="checkpoint" parent="Checkpoints/Checkpoint_platform2" index="3" node_paths=PackedStringArray("player_respawn_position")]
+player_respawn_position = NodePath("../../../PlayerReSpawnPoint")
+
 [connection signal="item_collected" from="collectables/CoinCollectable" to="UI/HUD" method="_on_coin_collectable_item_collected"]
-[connection signal="item_collected" from="collectables/CoinCollectable3" to="UI/HUD" method="_on_coin_collectable_3_item_collected"]
+[connection signal="item_collected" from="collectables/CoinCollectable2" to="UI/HUD" method="_on_coin_collectable_item_collected"]
 [connection signal="body_entered" from="RespawnArea" to="RespawnArea" method="_on_body_entered"]
+
+[editable path="Checkpoints/Checkpoint_platform"]
+[editable path="Checkpoints/Checkpoint_platform2"]

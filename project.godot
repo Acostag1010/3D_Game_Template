@@ -106,6 +106,7 @@ portal={
 3d_physics/layer_2="Platforms"
 3d_physics/layer_3="Collectible"
 3d_physics/layer_4="Portal"
+3d_physics/layer_5="checkpoint"
 
 [physics]
 

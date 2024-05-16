@@ -8,7 +8,16 @@ func _on_body_entered(_body):
 	# increment coin count by 1
 	global.coin_count = global.coin_count +1
 	print("coin count", global.coin_count)
-	queue_free() # remove object from scene
 	$Coin2.play()
 	
 	emit_signal("item_collected")
+	
+	await get_tree().create_timer(0.5).timeout
+	
+	queue_free() # remove object from scene
+	
+	
+
+
+func _on_item_collected():
+	pass # Replace with function body.

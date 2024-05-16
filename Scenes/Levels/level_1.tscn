@@ -1,10 +1,11 @@
-[gd_scene load_steps=46 format=3 uid="uid://qtosiu8j5rpo"]
+[gd_scene load_steps=42 format=3 uid="uid://qtosiu8j5rpo"]
 
 [ext_resource type="PackedScene" uid="uid://bgm1hrvguiy1" path="res://UI/hud.tscn" id="1_3743k"]
 [ext_resource type="PackedScene" uid="uid://b0q0bnia378s4" path="res://Scenes/Player.tscn" id="1_c8p3n"]
 [ext_resource type="Script" path="res://Scripts/RespawnPlayer.gd" id="2_mbv8r"]
 [ext_resource type="AudioStream" uid="uid://d11jk6nfy2t7f" path="res://Audio/BackgroundMusic.mp3" id="4_deqyo"]
 [ext_resource type="PackedScene" uid="uid://bpmbvqjcb8m6n" path="res://Scenes/Levels/components/coin_collectable.tscn" id="5_sqyrl"]
+[ext_resource type="PackedScene" uid="uid://dljb1l6yw035x" path="res://Scenes/Levels/components/checkpoint_platform.tscn" id="6_2csya"]
 [ext_resource type="PackedScene" uid="uid://cyq38axt85a2k" path="res://Scenes/Levels/components/portal.tscn" id="7_0bbda"]
 [ext_resource type="Script" path="res://Scripts/portal.gd" id="8_ejqar"]
 
@@ -94,24 +95,6 @@ albedo_color = Color(0.356863, 0.654902, 0, 1)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_b03k3"]
 radius = 1.0
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_1c1eh"]
-top_radius = 0.1
-bottom_radius = 0.1
-height = 3.0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gf6uy"]
-albedo_color = Color(1, 0.792157, 0, 1)
-
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_e6bvf"]
-height = 3.0
-radius = 0.1
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_eikgi"]
-size = Vector2(1, 1.5)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8pxjb"]
-albedo_color = Color(1, 0, 0.12549, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_mkbli"]
 
@@ -841,72 +824,17 @@ shape = SubResource("SphereShape3D_b03k3")
 
 [node name="Checkpoints_platforms" type="Node3D" parent="."]
 
-[node name="Checkpoint_platform" type="StaticBody3D" parent="Checkpoints_platforms"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 129.572, 2.48146, 0)
+[node name="Checkpoint_platform" parent="Checkpoints_platforms" instance=ExtResource("6_2csya")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 129.572, 2.36852, -0.105938)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Checkpoints_platforms/Checkpoint_platform"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.35621, 0, 0)
-mesh = SubResource("BoxMesh_qyopk")
-surface_material_override/0 = SubResource("StandardMaterial3D_b6c1g")
-metadata/_edit_lock_ = true
+[node name="checkpoint" parent="Checkpoints_platforms/Checkpoint_platform" index="3" node_paths=PackedStringArray("player_respawn_position")]
+player_respawn_position = NodePath("../../../PlayerReSpawnPoint")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints_platforms/Checkpoint_platform"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.34352, 0, 0)
-shape = SubResource("BoxShape3D_pg5gg")
-
-[node name="Flag" type="StaticBody3D" parent="Checkpoints_platforms/Checkpoint_platform"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.933, 0.34373, 0)
-metadata/_edit_lock_ = true
-
-[node name="pole" type="MeshInstance3D" parent="Checkpoints_platforms/Checkpoint_platform/Flag"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.04955, 1.663, 1.62615)
-mesh = SubResource("CylinderMesh_1c1eh")
-surface_material_override/0 = SubResource("StandardMaterial3D_gf6uy")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints_platforms/Checkpoint_platform/Flag"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.04985, 1.65957, 1.62734)
-shape = SubResource("CylinderShape3D_e6bvf")
-
-[node name="flag top" type="StaticBody3D" parent="Checkpoints_platforms/Checkpoint_platform/Flag"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.58578, 2.67673, 0.675319)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Checkpoints_platforms/Checkpoint_platform/Flag/flag top"]
-transform = Transform3D(0.015271, -0.999883, 0, 0.999883, 0.015271, 0, 0, 0, 1, -0.550018, -0.0293503, 1.6153)
-mesh = SubResource("PlaneMesh_eikgi")
-surface_material_override/0 = SubResource("StandardMaterial3D_8pxjb")
-
-[node name="Checkpoint_platform2" type="StaticBody3D" parent="Checkpoints_platforms"]
+[node name="Checkpoint_platform2" parent="Checkpoints_platforms" instance=ExtResource("6_2csya")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 225.593, 2.48146, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Checkpoints_platforms/Checkpoint_platform2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.35621, 0, 0)
-mesh = SubResource("BoxMesh_qyopk")
-surface_material_override/0 = SubResource("StandardMaterial3D_b6c1g")
-metadata/_edit_lock_ = true
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints_platforms/Checkpoint_platform2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.34352, 0, 0)
-shape = SubResource("BoxShape3D_pg5gg")
-
-[node name="Flag2" type="StaticBody3D" parent="Checkpoints_platforms/Checkpoint_platform2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.66602, 0.34373, 0)
-
-[node name="pole" type="MeshInstance3D" parent="Checkpoints_platforms/Checkpoint_platform2/Flag2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.04955, 1.663, 1.62615)
-mesh = SubResource("CylinderMesh_1c1eh")
-surface_material_override/0 = SubResource("StandardMaterial3D_gf6uy")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkpoints_platforms/Checkpoint_platform2/Flag2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.04985, 1.65957, 1.62734)
-shape = SubResource("CylinderShape3D_e6bvf")
-
-[node name="flag top" type="StaticBody3D" parent="Checkpoints_platforms/Checkpoint_platform2/Flag2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.58578, 2.67673, 0.675319)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Checkpoints_platforms/Checkpoint_platform2/Flag2/flag top"]
-transform = Transform3D(0.015271, -0.999883, 0, 0.999883, 0.015271, 0, 0, 0, 1, -0.550018, -0.0293503, 1.6153)
-mesh = SubResource("PlaneMesh_eikgi")
-surface_material_override/0 = SubResource("StandardMaterial3D_8pxjb")
+[node name="checkpoint" parent="Checkpoints_platforms/Checkpoint_platform2" index="3" node_paths=PackedStringArray("player_respawn_position")]
+player_respawn_position = NodePath("../../../PlayerReSpawnPoint")
 
 [node name="Boxes" type="Node3D" parent="."]
 
@@ -1001,6 +929,9 @@ level_to_load = "res://Scenes/Levels/level_2.tscn"
 
 [connection signal="body_entered" from="RespawnArea" to="RespawnArea" method="_on_body_entered"]
 [connection signal="item_collected" from="Collectables/CoinCollectable" to="UI/HUD" method="_on_coin_collectable_item_collected"]
-[connection signal="item_collected" from="Collectables/CoinCollectable3" to="UI/HUD" method="_on_coin_collectable_3_item_collected"]
-[connection signal="item_collected" from="Collectables/CoinCollectable2" to="UI/HUD" method="_on_coin_collectable_2_item_collected"]
+[connection signal="item_collected" from="Collectables/CoinCollectable3" to="UI/HUD" method="_on_coin_collectable_item_collected"]
+[connection signal="item_collected" from="Collectables/CoinCollectable2" to="UI/HUD" method="_on_coin_collectable_item_collected"]
 [connection signal="update_console" from="Portal" to="UI/HUD" method="_on_portal_update_console"]
+
+[editable path="Checkpoints_platforms/Checkpoint_platform"]
+[editable path="Checkpoints_platforms/Checkpoint_platform2"]
